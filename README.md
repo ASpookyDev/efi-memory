@@ -1,18 +1,10 @@
-**Archivation note:** I put this together when I was 16, and as you can imagine, the code and repo quality reflect that. For example, [this](https://github.com/SamuelTulach/efi-memory/blob/master/driver/main.c#L9) was caused by a [different calling convention (ABI)](https://learn.microsoft.com/en-us/cpp/build/x64-calling-convention?view=msvc-170), and it worked just by pure luck in older OS versions.
-
----
-
-<p align="center">
-  <img src="assets/logo.png"/>
-</p>
-
 Efi-memory is a proof-of-concept EFI runtime driver for reading and writing to virtual memory. It uses [EfiGuards](https://github.com/Mattiwatti/EfiGuard/) method of hooking SetVariable to communicate with the user-mode process. [Here is an example how it works](https://youtu.be/XKODdIsTgzU).
 
 ## Repo content
 driver/
 - EFI driver itself
 
-client/efi-mapper/
+mapper/
 - [kdmapper](https://github.com/z175/kdmapper/) fork that uses efi-memory to manual map any Windows driver
 
 ## Compiling
@@ -24,7 +16,7 @@ sudo apt install gnu-efi build-essential
 ```
 That's all you need to install. Package manager (in the example apt) should take care of all the depencies for you. Once the installation is complete, clone this repo (make sure you have git installed):
 ```   
-git clone https://github.com/SamuelTulach/efi-memory
+git clone https://github.com/ASpookyDev/efi-memory
 ```
 Than navigate to the driver folder and compile the driver with make:
 ```
@@ -35,7 +27,7 @@ make
 If the compile was successful, you should now see memory.efi in the driver folder.
 
 ## Usage
-In order to use the efi-memory driver, you need to load it. First, obtain a copy of memory.efi ([compile it](https://github.com/SamuelTulach/efi-memory#compiling) or [download it from release section](https://github.com/SamuelTulach/efi-memory/releases)) and a copy of [EDK2 efi shell](https://github.com/tianocore/edk2/releases). Now follow these steps:
+In order to use the efi-memory driver, you need to load it. First, obtain a copy of memory.efi ([like so](https://github.com/ASpookyDev/efi-memory#compiling). Now follow these steps:
 
 1. Extract downloaded efi shell and rename file Shell.efi (should be in folder UefiShell/X64) to bootx64.efi
 2. Format some USB drive to FAT32
@@ -61,7 +53,7 @@ load memory.efi
 7. Now there should be a nice efi-memory ascii logo printed in your UEFI shell. If there is, the driver was loaded successfuly. If that is the case, type `exit` to start standard boot procedure (while Windows is booting the screen should go blue with confirmation text)
 
 ## Thanks
-I would like to thank [@z175](https://github.com/z175/) for kdmapper project since that is a masterpiece. [@Mattiwatti](https://github.com/Mattiwatti/) for EfiGuard project and the idea of SetVariable hooking. Roderick W. Smith for [rodsbooks.com](http://rodsbooks.com/) (really useful site to read about EFI basics).
+I would like to thank [@z175](https://github.com/z175/) for kdmapper project since that is a masterpiece. [@Mattiwatti](https://github.com/Mattiwatti/) for EfiGuard project and the idea of SetVariable hooking. Roderick W. Smith for [rodsbooks.com](http://rodsbooks.com/) (really useful site to read about EFI basics). [@SamuelTulach](https://github.com/SamuelTulach/) for the original project.
 
 ## License
 This repo is licensed under MIT if not stated otherwise in subfolders.

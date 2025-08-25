@@ -1,5 +1,6 @@
 MIT License
 
+Copyright (c) 2025 Spooky (@ASpookyDev)
 Copyright (c) 2020 Samuel Tulach
 Copyright (c) 2019 z175
 

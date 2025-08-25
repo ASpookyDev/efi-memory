@@ -1,4 +1,4 @@
-#include "kdmapper.hpp"
+#include "mapper.hpp"
 
 int main(const int argc, char** argv)
 {	
@@ -25,7 +25,7 @@ int main(const int argc, char** argv)
 		return -1;
 	}
 
-	if (!kdmapper::MapDriver(iqvw64e_device_handle, driver_path))
+	if (!mapper::MapDriver(iqvw64e_device_handle, driver_path))
 	{
 		std::cout << "[-] Failed to map " << driver_path << std::endl;
 		return -1;

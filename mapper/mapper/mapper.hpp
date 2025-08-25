@@ -11,7 +11,7 @@
 #include "nt.hpp"
 #include "efi_driver.hpp"
 
-namespace kdmapper
+namespace mapper
 {
 	uint64_t MapDriver(HANDLE iqvw64e_device_handle, const std::string& driver_path);
 	void RelocateImageByDelta(portable_executable::vec_relocs relocs, const uint64_t delta);

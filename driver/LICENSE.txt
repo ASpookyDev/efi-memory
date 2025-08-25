@@ -1,3 +1,4 @@
+Copyright (c) 2025 Spooky (@ASpookyDev)
 Copyright (c) 2020 Samuel Tulach (@SamuelTulach)
 Copyright (c) 2019 Matthijs Lavrijsen (@Mattiwatti)
 
